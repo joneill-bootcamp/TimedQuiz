@@ -11,22 +11,30 @@
 </head>
 
 <body>
-    <div id="container" class="container-fluid" class="align-top" class="align-center">
-        <div class="btn btn-primary" id="start">Begin</div>
-        <div id="quiz" style="display: none">
-            <div id="question"></div>
-            <!--  <div id="qImg"></div>  -->
-            <div id="choices">
-                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+    <div id="container" class="jumbotron vertical-center">
+        <div id="intro" class="text-center">
+            <p>Welcome to the Quiz!!</p>
+            <p>Please click the Start button to begin</p>
+            <p>Each question has 10 seconds, try and beat the high score! Good luck!</p>
+            <div class="btn btn-primary" class="text-center" id="start">Begin</div>
+        </div>
+
+        <div class="vertical-center">
+            <div id="quiz" style="display: none">
+                <div id="question"></div>
+                <!--  <div id="qImg"></div>  -->
+                <div id="choices">
+                    <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                    <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                    <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+                </div>
+                <div id="timer">
+                    <div id="counter"></div>
+                    <div id="btimeGauge"></div>
+                    <div id="timeGauge"></div>
+                </div>
+                <div id="progress"></div>
             </div>
-            <div id="timer">
-                <div id="counter"></div>
-                <div id="btimeGauge"></div>
-                <div id="timeGauge"></div>
-            </div>
-            <div id="progress"></div>
         </div>
         <div id="scoreContainer" style="display: none"></div>
     </div>

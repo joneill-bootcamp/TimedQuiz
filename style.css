@@ -3,22 +3,23 @@ body {
     font-family: monospace;
 }
 
-/*
-#container{
-    margin : 20px auto;
+
+#container {
+    margin: 20px auto;
     background-color: white;
     height: 300px;
-    width : 700px;
+    width: 700px;
     border-radius: 5px;
     box-shadow: 0px 5px 15px 0px;
     position: relative;
-} 
+}
 
+/*
 #start {
     font-size: 1.5em;
     font-weight: bolder;
     word-break: break-all;
-    width: 100px;
+    width: 200px;
     height: 150px;
     border: 2px solid lightgrey;
     text-align: center;
@@ -27,13 +28,14 @@ body {
     left: 300px;
     top: 50px;
     color: lightgrey;
-}
+}*/
 
 #start:hover {
     border: 3px solid lightseagreen;
     color: lightseagreen;
-} 
+}
 
+/*
 #qImg {
     width: 200px;
     height: 200px;
