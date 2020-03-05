@@ -2,7 +2,6 @@
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
-//const qImg = document.getElementById("qImg");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
@@ -12,15 +11,14 @@ const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
 const intro = document.getElementById("intro");
 
-//const highscore = document.getElementById("highscore");
-
-
 // Localstorage to remember high score
 var myStorage = window.localStorage;
+var highScore = myStorage.getItem('HighScore');
 
-//highscore.textContent = "Best Score so far: " + myStorage.getItem('HighScore');
-console.log(myStorage.getItem('HighScore'));
-
+// If no high score set, then display a 0
+if (highScore === null) {
+    highScore = "0";
+}
 
 // create our questions
 let questions = [{
@@ -62,14 +60,13 @@ let score = 0;
 function renderQuestion() {
     let q = questions[runningQuestion];
 
-    question.innerHTML = "<p>" + q.question + "</p>";
-    //qImg.innerHTML = "<img src=" + q.imgSrc + ">";
+    question.innerHTML = "<p>" + "HighScore to beat: " + highScore + "</p>" + "<p>" + q.question + "</p>";
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
 }
 
-start.addEventListener("click", startQuiz);
+//start.addEventListener("click", startQuiz);
 
 // start quiz
 function startQuiz() {
@@ -147,18 +144,22 @@ function answerIsWrong() {
 
 // score render
 function scoreRender() {
-    scoreDiv.style.display = "block";
+    //scoreDiv.style.display = "block";
 
     // calculate the amount of question percent answered by the user
     const scorePerCent = Math.round(100 * score / questions.length);
 
-    // choose the image based on the scorePerCent
-    let img = (scorePerCent >= 80) ? "img/5.png" :
-        (scorePerCent >= 60) ? "img/4.png" :
-        (scorePerCent >= 40) ? "img/3.png" :
-        (scorePerCent >= 20) ? "img/2.png" :
-        "img/1.png";
+    if (score > 0) {
+        alert("You scored:" + score + " Points! Well done");
+    } else alert("Don't feel bad, try again!");
 
-    scoreDiv.innerHTML = "<img src=" + img + ">";
-    scoreDiv.innerHTML += "<p>" + scorePerCent + "%</p>";
+    if (score > highScore) {
+        alert("You beat the highscore!!");
+        myStorage.setItem('HighScore', score);
+    }
+
+    // Reload page
+    location.reload();
 }
+
+start.addEventListener("click", startQuiz);
